@@ -2,7 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { Pause, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import film from '@/assets/angela-loop.mp4.asset.json';
+import webm from '@/assets/angela-loop.webm.asset.json';
 import poster from '@/assets/hero-poster.jpg';
+
+function videoSource(element: HTMLVideoElement) {
+  return element.canPlayType('video/webm; codecs="vp9"') ? webm.url : film.url;
+}
 
 export function HeroFilm() {
   const video = useRef<HTMLVideoElement>(null);
@@ -16,7 +21,7 @@ export function HeroFilm() {
         element.pause();
         setPaused(true);
       } else {
-        element.src = film.url;
+        if (!element.getAttribute('src')) element.src = videoSource(element);
         void element.play().then(() => setPaused(false)).catch(() => setPaused(true));
       }
     };
@@ -28,7 +33,7 @@ export function HeroFilm() {
     const element = video.current;
     if (!element) return;
     if (element.paused) {
-      if (!element.getAttribute('src')) element.src = film.url;
+      if (!element.getAttribute('src')) element.src = videoSource(element);
       void element.play().then(() => setPaused(false)).catch(() => setPaused(true));
     } else {
       element.pause();
