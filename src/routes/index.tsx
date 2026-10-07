@@ -8,7 +8,7 @@ import clothing from '@/assets/clothing.jpg';
 import homeGoods from '@/assets/home-goods.jpg';
 import trinkets from '@/assets/trinkets.jpg';
 
-const socialImage = 'https://id-preview--301169e5-5d2c-44b0-ad52-7165293da922.lovable.app/__l5e/assets-v1/c41cc526-d972-497f-b013-a317d6682ef8/angela-hero.jpg';
+const socialImage = 'https://angelas-on-the-avenue.lovable.app/__l5e/assets-v1/c41cc526-d972-497f-b013-a317d6682ef8/angela-hero.jpg';
 const description = 'Discover secondhand clothing, home goods and unique finds at Angela’s on the Avenue, a nonprofit thrift store at 231 Philadelphia Ave in Egg Harbor City, NJ.';
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
