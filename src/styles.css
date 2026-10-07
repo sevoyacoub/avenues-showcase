@@ -46,10 +46,8 @@
   --border: oklch(0.38 0.005 52);
   --hero-shade: linear-gradient(180deg, oklch(0.148 0.005 52 / .46) 0%, oklch(0.148 0.005 52 / .08) 35%, oklch(0.148 0.005 52 / .88) 100%);
 }
-@layer base {
-  #lovable-badge {
-      display: none !important;}
-  }
+/* Unlayered so it outranks any layered or injected badge styles. */
+#lovable-badge, [id="lovable-badge"] { display: none !important; }
   * { border-color: var(--border); box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 24px; }
   body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); letter-spacing: 0; }
